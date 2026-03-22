@@ -1,0 +1,38 @@
+[
+    {
+        "page": 1,
+        "content": {
+            "page_summary": {
+                "total_receipts_detected": 1,
+                "general_page_notes": []
+            },
+            "receipts": [
+                {
+                    "receipt_number": "123",
+                    "date": "March 25, 2024",
+                    "payer_name": "Customer",
+                    "amount": "$20.12",
+                    "payment_method": "ACH super long super long super long super long super long",
+                    "purpose": "Subscription",
+                    "fields_detected": {
+                        "Company": "Example, LLC",
+                        "Company Address": "123 Fake Street\nNew York City, NY 10012",
+                        "Company Contact": "(555) 867-5309\nsupport@example.com\n123456789",
+                        "Bill To": "Customer\nAddress\nCity, State Zipcode\ncustomer@example.org",
+                        "Item": "Subscription",
+                        "Unit Cost": "$19.00",
+                        "Quantity": "1",
+                        "Subtotal": "$19.00",
+                        "Tax": "$1.12",
+                        "Total": "$20.12",
+                        "Amount paid": "$20.12",
+                        "Refunded": "Refunded on March 25, 2024 $5.00"
+                    },
+                    "handwritten_notes": [],
+                    "margin_comments": [],
+                    "uncertain_fields": []
+                }
+            ]
+        }
+    }
+]

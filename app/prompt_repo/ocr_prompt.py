@@ -2,7 +2,7 @@ class PROMPTS:
     def __init__(self):
         pass
 
-    def ocr_prompt(self, image_base64):
+    def ocr_prompt(self):
         prompt = f"""
 You are an expert document understanding system specialized in reading handwritten receipt books.
 The reciept can be in any language and the handwriting can be of any quality.

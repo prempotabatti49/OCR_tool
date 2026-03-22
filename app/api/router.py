@@ -4,6 +4,6 @@ from app.api.retrieval_api import router as retrieval_router
 
 api_router = APIRouter()
 
-api_router.include(ingestion_router)
-api_router.include(retrieval_router)
+api_router.include_router(ingestion_router)
+api_router.include_router(retrieval_router)
 

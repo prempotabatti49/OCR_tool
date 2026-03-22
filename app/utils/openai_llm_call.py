@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def call_llm_openai(messages):
+async def call_llm_openai(messages):
     client = OpenAI()
     response = client.chat.completions.create(
         model="gpt-4o",

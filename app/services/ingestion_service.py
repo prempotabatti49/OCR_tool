@@ -1,21 +1,23 @@
 from app.utils.utils import stitch_base64_messages
-from pdf2image import convert_from_bytes
+import fitz
 import base64
-from io import BytesIO
 from app.prompt_repo.ocr_prompt import PROMPTS
 from app.utils.openai_llm_call import call_llm_openai
 import json
 
 async def pdf_to_images(file):
     contents = await file.read()
-    images = convert_from_bytes(contents)
+    doc = fitz.open(stream=contents, filetype="pdf")
+    images = []
+    for page in doc:
+        pix = page.get_pixmap(dpi=200)
+        images.append(pix)
+    doc.close()
     return images
 
 
 def image_to_base64(image):
-    buffered = BytesIO()
-    image.save(buffered, format="PNG")
-    return base64.b64encode(buffered.getvalue()).decode("utf-8")
+    return base64.b64encode(image.tobytes("png")).decode("utf-8")
 
 
 async def run_ocr(base64_image):
@@ -26,5 +28,5 @@ async def run_ocr(base64_image):
     # Parse the output into json format
     output = json.loads(output.strip().replace("```json", "").replace("```", ""))
 
-    return call_llm_openai([message])
+    return output
 
